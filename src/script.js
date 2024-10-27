@@ -331,6 +331,9 @@ scene.add(camera);
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
+controls.maxPolarAngle = Math.PI * 0.48;
+controls.minDistance = 4;
+controls.maxDistance = 12;
 controls.enableDamping = true;
 
 const floor = new THREE.Mesh(
@@ -386,7 +389,6 @@ const tick = () => {
   timer.update();
   const elapsedTime = timer.getElapsed();
 
-  console.log(elapsedTime);
   const ghost1Angle = elapsedTime * 0.5;
   ghost1.position.x = Math.cos(ghost1Angle) * 4;
   ghost1.position.z = Math.sin(ghost1Angle) * 4;
